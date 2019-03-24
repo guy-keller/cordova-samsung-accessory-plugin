@@ -1,0 +1,37 @@
+{
+    "name": "cordova-samsung-accessory-plugin",
+    "version": "1.0.0",
+    "description": "Communication from your Cordova application to a Samsung Tizen application.",
+    "cordova": {
+      "id": "cordova-samsung-accessory-plugin",
+      "platforms": [
+        "android"
+      ]
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/guikeller/cordova-samsung-accessory-plugin.git"
+    },
+    "keywords": [
+      "Android",
+      "Samsung",
+      "Tizen",
+      "Watch",
+      "Wearable",
+      "ecosystem:cordova",
+      "cordova-android"
+    ],
+    "engines": [
+      {
+        "name": "cordova",
+        "version": ">=3.0.0"
+      }
+    ],
+    "author": "Gui Keller",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/guikeller/cordova-samsung-accessory/issues"
+    },
+    "homepage": "https://github.com/guikeller/cordova-samsung-accessory"
+  }
+  

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-samsung-accessory-plugin"
+    version="1.0.0">
+
+    <name>cordova-samsung-accessory-plugin</name>
+    <description>Communication from your Cordova application (Provider) to a Samsung Tizen application (Consumer).</description>
+    <author>Gui Keller</author>
+    <license>MIT</license>
+    <keywords>Android, Samsung, Tizen, Wear, Watch, Wearable</keywords>
+    <repo>https://github.com/guikeller/cordova-samsung-accessory-plugin</repo>
+    <issue>https://github.com/guikeller/cordova-samsung-accessory-plugin/issues</issue>
+    
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    
+    <platform name="android">
+
+        <!-- Using an aar lib, hence no messing around too much with the conf -->
+        <resource-file src="src/android/lib/cordova-samsung-accessory-plugin.aar" target="libs/cordova-samsung-accessory-plugin.aar" />
+        <framework src="src/android/cordova-samsung-accessory-plugin.gradle" custom="true" type="gradleReference" />
+    
+        <!-- The 'feature name' value is then available on the www/*-plugin.js file -->
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CordovaSamsungAccessoryPlugin" >
+                <param name="android-package" value="com.github.guikeller.cordova.samsung.accessory.CordovaSamsungAccessoryPlugin"/>
+            </feature>
+        </config-file>
+
+        <!-- The JS file that invokes the Java lib -->
+        <js-module src="www/cordova-samsung-accessory-plugin.js" name="SamsungAccessoryPlugin">
+            <clobbers target="cordova.SamsungAccessoryPlugin" />
+            <clobbers target="window.SamsungAccessoryPlugin" />
+        </js-module>
+        
+    </platform>
+</plugin>
