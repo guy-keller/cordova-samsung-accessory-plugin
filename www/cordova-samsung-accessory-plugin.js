@@ -3,7 +3,7 @@ module.exports = {
         cordova.exec(successCallback, errorCallback, "CordovaSamsungAccessoryPlugin", "init", []);
     },
     shutdown: function(onNewMessageCallback, errorCallback) {
-        cordova.exec(onNewMessageCallback, errorCallback, "CordovaSamsungAccessoryPlugin", "messageReceiver", []);
+        cordova.exec(onNewMessageCallback, errorCallback, "CordovaSamsungAccessoryPlugin", "shutdown", []);
     },
     sendMessage: function(successCallback, errorCallback, message) {
         cordova.exec(successCallback, errorCallback, "CordovaSamsungAccessoryPlugin", "sendMessage", [message]);

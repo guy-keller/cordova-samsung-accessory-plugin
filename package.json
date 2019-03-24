@@ -24,14 +24,18 @@
     "engines": [
       {
         "name": "cordova",
-        "version": ">=3.0.0"
+        "version": ">=7.1.0"
+      },
+      {
+        "name": "cordova-android",
+        "version": ">=7.0.0"
       }
     ],
     "author": "Gui Keller",
     "license": "MIT",
     "bugs": {
-      "url": "https://github.com/guikeller/cordova-samsung-accessory/issues"
+      "url": "https://github.com/guikeller/cordova-samsung-accessory-plugin/issues"
     },
-    "homepage": "https://github.com/guikeller/cordova-samsung-accessory"
+    "homepage": "https://github.com/guikeller/cordova-samsung-accessory-plugin"
   }
   
