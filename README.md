@@ -61,6 +61,8 @@ https://developer.samsung.com/galaxy-watch/develop/samples/companion/
 <br>
 
 ```js
+var ProviderAppName = "CordovaSamsungAccessoryAgent";
+
 // Tizen Conf (JS) - res/xml/accessoryservices.xml
 serviceProfile#id: '/samsung/accessory/provider/cordova/plugin'
 serviceProfile#role: 'consumer'
