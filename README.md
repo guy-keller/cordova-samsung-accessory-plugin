@@ -69,6 +69,11 @@ serviceProfile#role: 'consumer'
 serviceChannel#id: '7219'
 ```
 
+<br>
+https://medium.com/@lahtela/writing-a-tizen-watch-application-with-angular-6-cd7d788fef95
+<br>
+Note: The '_Routing Issue_' may get solved by using the **HashLocationStrategy** instead of the default.
+
 ## Credits
 [Gui Keller](https://www.github.com/guikeller)
 
