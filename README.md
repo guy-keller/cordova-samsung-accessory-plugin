@@ -26,7 +26,7 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
         var value = JSON.stringify(message);
         alert("Received message from Watch : "+value);
     };
-    var receiveMessageFailure = function(){
+    var receiveMessageFailure = function() {
         alert("Could not receive message from Watch");
     };
 
@@ -37,12 +37,20 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
     var sendMessageFailure = function(){
         alert("Could not send message to Watch.");
     };
+
+    var findPeerSuccess = function() {
+        // Sends a message to the peer
+        var message = {message: "hello from phone", value: "1234", foo: "bar"};
+        SamsungAccessoryPlugin.sendMessage(message, sendMessageSuccess, sendMessageFailure);    
+    };
+    var findPeerFailure = function() {
+        alert("Could not find any peers.");
+    };
     
     // Initialised a Session successfully
     var initWatchSuccess = function() {
-        // Sends a message through 'sendMessage'
-        var message = {message: "hello from phone", value: "1234", foo: "bar"};
-        SamsungAccessoryPlugin.sendMessage(message, sendMessageSuccess, sendMessageFailure);    
+        // Tries to find the peer / watch
+        SamsungAccessoryPlugin.findPeer(findPeerSuccess, findPeerFailure);
 	    // Register to receive messages
         SamsungAccessoryPlugin.registerMessageListener(receiveMessageSuccess, receiveMessageFailure);
     };
