@@ -20,9 +20,8 @@ With ionic:
 ## Use from Javascript
 Edit `www/js/index.js` and add the following code inside `onDeviceReady`
 ```js
-    // Receiving messages from Watch
+    // Receiving messages from Watch - callbacks
     var receiveMessageSuccess = function(message){
-        // Either from a sendMessage (with or without handlers) or updateApplicationContext
         var value = JSON.stringify(message);
         alert("Received message from Watch : "+value);
     };
@@ -30,7 +29,7 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
         alert("Could not receive message from Watch");
     };
 
-    // Sending Messages to Watch
+    // Sending Messages to Watch - callbacks
     var sendMessageSuccess = function() {
         alert("Message sent successfully!");
     };
@@ -39,7 +38,7 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
     };
 
     var findPeerSuccess = function() {
-        // Sends a message to the peer
+        // Sends a message to the Watch
         var message = {message: "hello from phone", value: "1234", foo: "bar"};
         SamsungAccessoryPlugin.sendMessage(message, sendMessageSuccess, sendMessageFailure);    
     };
@@ -68,19 +67,35 @@ https://developer.samsung.com/galaxy/accessory#samples
 https://developer.samsung.com/galaxy-watch/develop/samples/companion/
 <br>
 
-```js
-var ProviderAppName = "CordovaSamsungAccessoryAgent";
-
-// Tizen Conf (JS) - res/xml/accessoryservices.xml
-serviceProfile#id: '/samsung/accessory/provider/cordova/plugin'
-serviceProfile#role: 'consumer'
-serviceChannel#id: '7219'
+```xml
+// Tizen Conf (Watch) - res/xml/accessoryservices.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <application name="CordovaSamsungPluginApp" >
+        <serviceProfile
+            id="/cordova/samsung/accs/plugin"
+            name="CordovaSamsungPlugin"
+            role="provider"
+            version="1.0" >
+            <supportedTransports>
+                <transport type="TRANSPORT_BT" />
+                <transport type="TRANSPORT_WIFI"/>
+            </supportedTransports>
+            <serviceChannel
+                id="7219"
+                dataRate="high"
+                priority="high"
+                reliability="enable" >
+            </serviceChannel>
+        </serviceProfile>
+    </application>
+</resources>
 ```
 
 <br>
 https://medium.com/@lahtela/writing-a-tizen-watch-application-with-angular-6-cd7d788fef95
 <br>
-Note: The *Routing Issue* may get solved by using the *HashLocationStrategy* instead of the default implementation.
+Note: The *Routing Issue* gets resolved by using the *HashLocationStrategy* instead of the default implementation.
 
 ## Credits
 [Gui Keller](https://www.github.com/guikeller)
