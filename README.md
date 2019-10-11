@@ -38,9 +38,12 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
     };
 
     var findPeerSuccess = function() {
-        // Sends a message to the Watch
-        var message = {message: "hello from phone", value: "1234", foo: "bar"};
-        SamsungAccessoryPlugin.sendMessage(message, sendMessageSuccess, sendMessageFailure);    
+        // Wait for 2secs, SAP 'should have' found all peers after that..
+        window.setTimeout( () => {
+            // Sends a message to the Watch
+            var message = {message: "hello from phone", value: "1234", foo: "bar"};
+            SamsungAccessoryPlugin.sendMessage(sendMessageSuccess, sendMessageFailure, message);    
+	}, 2000);
     };
     var findPeerFailure = function() {
         alert("Could not find any peers.");
@@ -48,16 +51,19 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
     
     // Initialised a Session successfully
     var initWatchSuccess = function() {
-        // Tries to find the peer / watch
-        SamsungAccessoryPlugin.findPeer(findPeerSuccess, findPeerFailure);
+        // Wait for 6secs, SAP 'should have' initialised after that..
+        window.setTimeout( () => {
+            // Tries to find the peer / watch
+            SamsungAccessoryPlugin.findPeer(findPeerSuccess, findPeerFailure);
 	    // Register to receive messages
-        SamsungAccessoryPlugin.registerMessageListener(receiveMessageSuccess, receiveMessageFailure);
+            SamsungAccessoryPlugin.registerMessageListener(receiveMessageSuccess, receiveMessageFailure);
+	}, 6000);
     };
     var initWatchFailure = function() {
         alert("Could not connect to Watch.");
     };
     
-    // Starts things up
+    // Starting things up - PS: SAP = Samsung Accessory Protocol
     SamsungAccessoryPlugin.init(initWatchSuccess, initWatchFailure);
 ```
 ## Use from Samsung Watch
