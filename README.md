@@ -103,6 +103,9 @@ https://medium.com/@lahtela/writing-a-tizen-watch-application-with-angular-6-cd7
 <br>
 Note: The *Routing Issue* gets resolved by using the *HashLocationStrategy* instead of the default implementation.
 
+## Source Code for AAR
+https://github.com/guikeller/cordova-samsung-accessory-plugin-source
+
 ## Credits
 [Gui Keller](https://www.github.com/guikeller)
 
